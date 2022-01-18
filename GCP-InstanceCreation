@@ -1,0 +1,14 @@
+
+gcloud compute instance-templates create plainid-pocv12-cent8-autostart --source-instance eplus-cda-bld-02-dfl-euwe-01345968-efd4-harness-lh7j --configure-disk=device-name=/dev/sda,instantiate-from=source-image,auto-delete=true
+
+
+gcloud beta compute machine-images create eplus-cda --project=asc-pom --description=POC --source-instance=eplus-cda-bld-02-dfl-euwe-01345968-efd4-harness-lh7j --source-instance-zone=europe-west2-c --storage-location=europe-west2
+
+
+gcloud compute instance-templates create poc-instance-template-1 --project=asc-pom --machine-type=e2-medium --network-interface=network=default,network-tier=PREMIUM --maintenance-policy=MIGRATE --service-account=818547085544-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append --tags=http-server,https-server --create-disk=auto-delete=yes,boot=yes,device-name=poc-instance-template-1,image=projects/debian-cloud/global/images/debian-10-buster-v20211209,mode=rw,size=10,type=pd-balanced --no-shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring --labels=use=poc --reservation-affinity=any
+
+
+
+
+
+gcloud compute instances create eplus-com-bld-02-dfl-euwe-01345968-efd4-harness-com --project=asc-pom --zone=us-west4-b --machine-type=e2-medium --network-interface=network-tier=PREMIUM,subnet=default --maintenance-policy=MIGRATE --service-account=818547085544-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append --tags=http-server,https-server --create-disk=auto-delete=yes,boot=yes,device-name=poc-instance-template-1,image=projects/debian-cloud/global/images/debian-10-buster-v20211209,mode=rw,size=10,type=projects/asc-pom/zones/us-west4-b/diskTypes/pd-balanced --no-shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring --labels=use=poc --reservation-affinity=any
