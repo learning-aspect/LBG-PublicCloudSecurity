@@ -1,0 +1,27 @@
+export organization_id=1066590909950
+export ORGANIZATION_ID=1066590909950
+pip install google-cloud-securitycenter
+export PROJECT_ID=asc-pom
+export SERVICE_ACCOUNT=azure2gcp-sa
+export KEY_LOCATION=/home/parul/asc-pom-685f0de79d7f.json
+export GOOGLE_APPLICATION_CREDENTIALS=/home/parul/asc-pom-685f0de79d7f.json
+
+pip install google-cloud-securitycenter
+
+gcloud config set account azuregcp-sa@asc-pom.iam.gserviceaccount.com
+
+gcloud auth activate-service-account azuregcp-sa@asc-pom.iam.gserviceaccount.com --key-file=/home/parul/asc-pom-685f0de79d7f.json --project=asc-pom	
+
+gcloud auth activate-service-account azuregcp-sa@asc-pom.iam.gserviceaccount.com --key-file=C:\Users\parchaud\Downloads\asc-pom-685f0de79d7f.json --project=asc-pom
+
+C:\Program Files (x86)\Google\Cloud SDK>gcloud auth print-access-token
+
+
+gcloud auth activate-service-account azure2gcp-svcacc@asc-pom.iam.gserviceaccount.com \
+            --key-file=/home/parul/asc-pom-685f0de79d7f.json --project=asc-pom
+
+parul@cloudshell:~ (asc-pom)$ export KEY_LOCATION=/home/parul/asc-pom-cd5f5f4a0ffe.json
+parul@cloudshell:~ (asc-pom)$ export SERVICE_ACCOUNT=azure2gcp-sa
+parul@cloudshell:~ (asc-pom)$ export GOOGLE_APPLICATION_CREDENTIALS=/home/parul/asc-pom-cd5f5f4a0ffe.json
+parul@cloudshell:~ (asc-pom)$ export ORGANIZATION_ID=1066590909950
+parul@cloudshell:~ (asc-pom)$ gcloud scc findings list $ORGANIZATION_ID
